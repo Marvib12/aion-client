@@ -6,7 +6,7 @@ Keine Installation, kein Fenster, keine Meldungen.
 
 ## Einrichtung
 
-1. Lade [`AionClient.exe`](../../raw/main/AionClient.exe) herunter.
+1. Lade `AionClient.exe` unter [Releases](../../releases/latest) herunter.
 2. Lege sie in einen eigenen Ordner, in dem du Schreibrechte hast, zum Beispiel `C:\Users\<Name>\AionClient`. Nicht unter `C:\Program Files`, sonst funktionieren Updates nicht.
 3. Rechtsklick auf den Desktop → **Neu** → **Verknüpfung**.
 4. Trage als Speicherort ein, beide Pfade in Anführungszeichen:
