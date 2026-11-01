@@ -2,8 +2,11 @@ name: Release
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
+    paths:
+      - version.txt
+      - .github/workflows/release.yml
 
 permissions:
   contents: write
@@ -13,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: gh release create "$GITHUB_REF_NAME" AionClient.exe AionClient.exe.sha256 --title "Aion Client $GITHUB_REF_NAME" --notes "Lade AionClient.exe herunter. Die Einrichtung steht in der README."
+      - run: |
+          tag="v$(cat version.txt)"
+          gh release view "$tag" >/dev/null 2>&1 && exit 0
+          gh release create "$tag" AionClient.exe AionClient.exe.sha256 --title "Aion Client $tag" --notes "Lade AionClient.exe herunter. Die Einrichtung steht in der README."
         env:
           GH_TOKEN: ${{ github.token }}
