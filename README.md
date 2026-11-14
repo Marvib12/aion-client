@@ -21,9 +21,19 @@ Du findest den Pfad zu Questlog so: Rechtsklick auf deine bisherige Questlog-Ver
 
 Die Verknüpfung startet Questlog und den Client. Läuft Questlog oder der Client schon, wird nichts doppelt gestartet. Der Client läuft weiter, wenn du Questlog schließt.
 
-## Benachrichtigungen
+## Deine ID finden
 
-Deine ID steht nach dem ersten Start in `%APPDATA%\AionTool\user-id.txt`. Sie bleibt immer gleich.
+Der Client erstellt beim ersten Start eine feste ID mit 6 Zeichen, zum Beispiel `abc123`. Du brauchst sie für die Benachrichtigungen.
+
+1. Starte den Client einmal über deine Verknüpfung.
+2. Drücke **Windows-Taste + R**, gib `%APPDATA%\AionTool` ein und bestätige mit **Enter**.
+3. Öffne die Datei `user-id.txt`. Darin steht deine ID.
+
+Die ID bleibt immer gleich, auch nach Updates. Löschst du den Ordner `%APPDATA%\AionTool`, bekommst du beim nächsten Start eine neue ID.
+
+Fehlt die Datei, lief der Client noch nicht. Prüfe im Task-Manager, ob `AionClient.exe` läuft, und schau in `client.log` im selben Ordner nach einem Fehler.
+
+## Benachrichtigungen
 
 Installiere die ntfy-App, stelle als Server `https://ntfy.marvib.de` ein und abonniere mit deiner ID:
 
