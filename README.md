@@ -1,8 +1,29 @@
 # Aion Client
 
-Kleiner Hintergrund-Client für Aion 2. Er liest deine lokalen Questlog-Daten und schickt alle 10 Minuten Energie, Charaktere und ausgewählte Bosse an den Server. Du bekommst dann per ntfy eine Nachricht vor deinen Weltenbossen und wenn ein Charakter bald volle Energie hat.
+Kleiner Hintergrund-Client für Aion 2. Er liest die Daten deiner Aion-2-Tools auf dem PC und schickt alle 10 Minuten Energie, Charaktere, Währungen und ausgewählte Bosse an den Server. Du bekommst dann per ntfy eine Nachricht vor deinen Weltenbossen und wenn ein Charakter bald volle Energie hat.
 
 Keine Installation, kein Fenster, keine Meldungen.
+
+## Unterstützte Tools
+
+Der Client erkennt selbst, welche Tools installiert sind, und nimmt pro Charakter immer den neuesten Stand. Du brauchst mindestens eins davon.
+
+| Funktion | [Questlog](https://questlog.gg/aion-2) | [A2Tools](https://a2tools.app) | [Nyerk](https://github.com/xCROv/aion2-nyerk) |
+| --- | :---: | :---: | :---: |
+| Energie (normal und aufgeladen) | ✓ | ✓ | ✓ |
+| Max-Energie (Mitgliedschaft) | ✓ | ✓ | ✓ |
+| Klasse und Level | ✓ | ✓ | – |
+| Kina, Kina (gebunden), Abyss-Punkte | ✓ | – | – |
+| Ausgewählte Bosse für die Warnungen | ✓ | – | – |
+| Boss-Zeiten | ✓ | ✓ | – |
+
+Hinweise:
+
+- **A2Tools:** Energie kommt aus dem Plugin **Roster / Content Overview**, es muss installiert sein. Die Boss-Zeiten holt der Server direkt bei A2Tools, dafür muss der Client nicht laufen.
+- **Nyerk:** Energie kommt aus dem Addon **Task List**.
+- **Ohne Questlog** bleibt deine zuletzt gesendete Boss-Auswahl erhalten.
+
+Unabhängig von den Tools kennt der Server für europäische Server die festen Zeiten von Watcher Kaira, Argo, Nahma, den Executors und der Artefakt-Belagerung.
 
 ## Einrichtung
 
@@ -17,7 +38,7 @@ Keine Installation, kein Fenster, keine Meldungen.
 
 5. Vergib einen Namen, zum Beispiel `Questlog`, und starte Questlog ab jetzt über diese Verknüpfung.
 
-Du findest den Pfad zu Questlog so: Rechtsklick auf deine bisherige Questlog-Verknüpfung → **Eigenschaften** → **Ziel**.
+Du findest den Pfad zu Questlog so: Rechtsklick auf deine bisherige Questlog-Verknüpfung → **Eigenschaften** → **Ziel**. Nutzt du kein Questlog, trag nur die `AionClient.exe` ohne zweiten Pfad ein und starte deine Tools wie gewohnt selbst. A2Tools braucht zum Beispiel Administratorrechte, die kann der Client nicht anfordern.
 
 Die Verknüpfung startet Questlog und den Client. Läuft Questlog oder der Client schon, wird nichts doppelt gestartet. Der Client läuft weiter, wenn du Questlog schließt.
 
@@ -39,8 +60,10 @@ Installiere die ntfy-App, stelle als Server `https://ntfy.marvib.de` ein und abo
 
 | Thema | Inhalt |
 | --- | --- |
-| `boss-<ID>` | 30 Minuten vor deinen ausgewählten Bossen |
-| `char-<ID>` | Täglich um 6 Uhr: Charaktere, die innerhalb von 24 Stunden voll sind |
+| `boss-<ID>` | 30 Minuten vor deinen ausgewählten Bossen, mit allen gewählten Bossen der nächsten Stunde in einer Nachricht. Die Artefakt-Belagerung kommt für alle. |
+| `char-<ID>` | Täglich um 6 Uhr: Charaktere, die innerhalb von 24 Stunden voll sind. Außerdem eine Nachricht, wenn ein neuer Charakter erfasst wurde. |
+
+Auf Android: Aktiviere beim Abonnieren **Sofortige Zustellung** und nimm ntfy von der Akku-Optimierung aus.
 
 ## Updates
 
